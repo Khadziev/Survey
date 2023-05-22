@@ -7,7 +7,7 @@ export interface AuthState {
 
 const initialState: AuthState = {
     name: null,
-    token: null,
+    token: localStorage.getItem('token'),
 };
 
 export const authSlice = createSlice({

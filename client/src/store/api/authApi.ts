@@ -35,7 +35,7 @@ export const authApi = createApi({
         verifyUser: builder.mutation({
             query: (body: { token: string }) => {
                 console.log(body.token);
-    
+
                 return {
                     url: "/user/verfiy-user-mail",
                     method: "post",
@@ -63,9 +63,8 @@ export const authApi = createApi({
         }),
     }),
 });
-    
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
+
+
 export const {
     useSigninUserMutation,
     useSignupUserMutation,
