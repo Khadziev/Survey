@@ -8,6 +8,6 @@ var errorHandler = function (err, req, res, next) {
     }
     res
         .status(err.statusCode || 500)
-        .json({ message: err.message || "An Unknown Error" });
+        .json({ message: err.message || "Неизвестная ошибка" });
 };
 exports.errorHandler = errorHandler;

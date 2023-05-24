@@ -1,4 +1,5 @@
-import { Router } from "express";
+import { Router, Request, Response } from "express";
+import User, { IUser } from "../model/User";
 import {
   sendVerificationMail,
   signinUser,
@@ -39,5 +40,31 @@ router.post(
     sendForgotPasswordMailValidation,
     sendForgotPasswordMail
 );
+
+// Роут для загрузки фото пользователя
+// router.post("/users/:userId/photo", async (req: Request, res: Response) => {
+//   const userId = req.params.userId;
+//   const photo = req.body.photo; // Предполагается, что фото передается в теле запроса
+
+//   try {
+//     // Найдите пользователя по идентификатору
+//     const user: IUser | null = await User.findById(userId);
+
+//     if (!user) {
+//       return res.status(404).json({ error: "Пользователь не найден" });
+//     }
+
+//     // Обновите поле фото пользователя
+//     user.photo = photo;
+
+//     // Сохраните изменения
+//     await user.save();
+
+//     return res.json({ message: "Фото успешно добавлено" });
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ error: "Внутренняя ошибка сервера" });
+//   }
+// });
 
 export default router;

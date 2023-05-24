@@ -70,11 +70,11 @@ var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var config_1 = require("../config");
 var nodemailer_1 = __importDefault(require("nodemailer"));
 var signupUser = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, email, password, imageURL, existingUser, hashedPassword, user, error_1;
+    var _a, name, email, password, photo, existingUser, hashedPassword, user, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _a = req.body, name = _a.name, email = _a.email, password = _a.password, imageURL = _a.imageURL;
+                _a = req.body, name = _a.name, email = _a.email, password = _a.password, photo = _a.photo;
                 _b.label = 1;
             case 1:
                 _b.trys.push([1, 5, , 6]);
@@ -86,7 +86,7 @@ var signupUser = function (req, res, next) { return __awaiter(void 0, void 0, vo
                 return [4 /*yield*/, bcrypt_1.default.hash(password, 8)];
             case 3:
                 hashedPassword = _b.sent();
-                user = new User_1.default({ name: name, email: email, password: hashedPassword, imageURL: imageURL });
+                user = new User_1.default({ name: name, email: email, password: hashedPassword, photo: photo });
                 return [4 /*yield*/, user.save()];
             case 4:
                 _b.sent();

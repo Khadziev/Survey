@@ -39,7 +39,3 @@ mongoose
     throw createHttpError(501, "Unable to connect database");
   });
 
-
-// mongodb+srv://hadziev0615:<password>@cluster0.jbecpot.mongodb.net/
-
-// mongodb+srv://hadziev0615:0PREdcTtt6KtcfqJ@cluster0.jbecpot.mongodb.net/?retryWrites=true&w=majority

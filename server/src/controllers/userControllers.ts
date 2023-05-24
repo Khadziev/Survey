@@ -8,14 +8,14 @@ import nodemailer from "nodemailer";
 
 
 export const signupUser: RequestHandler = async (req, res, next) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, photo } = req.body;
 
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) return next(createHttpError(422, "Электронная почта уже существует!"));
 
     const hashedPassword = await bcrypt.hash(password, 8);
-    const user = new User({ name, email, password: hashedPassword });
+    const user = new User({ name, email, password: hashedPassword, photo });
 
     await user.save();
 
@@ -24,6 +24,8 @@ export const signupUser: RequestHandler = async (req, res, next) => {
     return next(InternalServerError);
   }
 };
+
+
 
 export const signinUser: RequestHandler = async (req, res, next) => {
   const { email, password } = req.body;
